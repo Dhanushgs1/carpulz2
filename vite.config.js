@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => {
         }
       }
     ],
+    base: '/carpulz/',
     build: {
       rollupOptions: {
         input: {
