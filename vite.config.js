@@ -1,33 +1,5 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
+import { defineConfig } from 'vite'
 
-export default defineConfig(({ mode }) => {
-  return {
-    plugins: [
-      react(),
-      {
-        name: 'redirect-to-admin',
-        configureServer(server) {
-          if (mode === 'admin') {
-            server.middlewares.use((req, res, next) => {
-              if (req.url === '/') {
-                req.url = '/admin.html';
-              }
-              next();
-            });
-          }
-        }
-      }
-    ],
-    base: '/carpulz/',
-    build: {
-      rollupOptions: {
-        input: {
-          main: resolve(__dirname, 'index.html'),
-          admin: resolve(__dirname, 'admin.html')
-        }
-      }
-    }
-  };
-});
+export default defineConfig({
+  base: '/carpulz2/',
+})
