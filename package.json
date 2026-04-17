@@ -1,6 +1,33 @@
+<<<<<<< HEAD
 "scripts": {
   "dev": "vite",
   "build": "vite build",
   "preview": "vite preview",
   "deploy": "npm run build && npx gh-pages -d dist"
 }
+=======
+{
+  "name": "carpulz-react-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "nodemon server.js",
+    "start": "node server.js",
+    "build": "vite build",
+    "deploy": "npm run build && npx gh-pages -d dist"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^9.2.1",
+    "gh-pages": "^6.3.0",
+    "nodemon": "^3.1.14",
+    "vite": "^5.4.1"
+  }
+}
+>>>>>>> cc6f65c (fix package.json)
