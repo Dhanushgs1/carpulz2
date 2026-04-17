@@ -1,6 +1,79 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 
 const API_BASE = 'http://localhost:3000';
+
+const GOOGLE_REVIEWS = [
+  {
+    name: "Dhanush Buju",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=b9784b",
+    rating: 5,
+    text: "I recently visited Car Plus to install cruise control in my car, and I am extremely happy with the service. The work was done very neatly and professionally.",
+    date: "5 months ago"
+  },
+  {
+    name: "Priya Lakshmi",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Sasha&backgroundColor=c99b70",
+    rating: 5,
+    text: "Excellent seat cover work! The finish is very premium and the staff was very polite. Highly recommended for ladies who want a safe and professional service.",
+    date: "2 months ago"
+  },
+  {
+    name: "Prabhu S",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&backgroundColor=ab6d42",
+    rating: 5,
+    text: "Went for steering stich for Skoda rapid, very satisfied and highly recommend.",
+    date: "4 months ago"
+  },
+  {
+    name: "Divya R",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Jack&backgroundColor=b9784b",
+    rating: 5,
+    text: "Got my interior detailing done here. The car looks brand new! Very neat work by the Erode team.",
+    date: "3 months ago"
+  },
+  {
+    name: "Dev Anand Natarajan",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Oliver&backgroundColor=8c532b",
+    rating: 5,
+    text: "Visited car plus to install Android head unit and LED light. Very good experience.",
+    date: "4 months ago"
+  },
+  {
+    name: "Mani Maran",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Toby&backgroundColor=c99b70",
+    rating: 5,
+    text: "Best place for car accessories and detailing... I did my car seat cover and floor mat... Good quality.",
+    date: "4 months ago"
+  },
+  {
+    name: "Anbazhagan Rajendran",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix&backgroundColor=f1f5f9",
+    rating: 5,
+    text: "Good service and Quality accessories!. We have fitted Full mat, android music set, sun flims etc.",
+    date: "4 months ago"
+  },
+  {
+    name: "Sneha Kapur",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Bella&backgroundColor=c99b70",
+    rating: 5,
+    text: "The ambiance of the shop is great and the transformation work is very professional. Best shop in Erode!",
+    date: "1 month ago"
+  },
+  {
+    name: "Vimal Raj",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Oliver&backgroundColor=8c532b",
+    rating: 5,
+    text: "Excellent service and quality products. Staffs are very friendly.",
+    date: "6 months ago"
+  },
+  {
+    name: "Rajeev Nandagopal",
+    avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka&backgroundColor=c99b70",
+    rating: 5,
+    text: "These people are awesome. Advice you regarding your requirements. Don't force decisions.",
+    date: "10 months ago"
+  }
+];
 
 function App() {
   const [cars, setCars] = useState([]);
@@ -240,8 +313,53 @@ function App() {
             <div className="features-strip">
               <div className="feature-item premium">🎨 Premium Finish</div>
               <div className="feature-item quick">⚡ Quick Install</div>
-              <div className="feature-item warranty">🛡️ Warranty Included</div>
+              <div className="feature-item warranty">🛡️ Warranty Unaffected</div>
               <div className="feature-item best-class">✨ From Base to <span style={{ color: '#C68346' }}>Best-in-Class.</span></div>
+            </div>
+          </div>
+        </section>
+
+        {/* Google Reviews */}
+        <section className="home-reviews-section">
+          <div className="section-header-premium" style={{ marginBottom: 50 }}>
+            <h2 className="home-faq-title" style={{ marginBottom: 15, fontSize: '2.4rem' }}>What Our Customers Say</h2>
+            <div className="google-rating-summary">
+              <div className="g-pill">
+                <span className="google-g">G</span>
+                <span className="rating-val">4.8 / 5</span>
+              </div>
+              <div className="stars-mini">★★★★★</div>
+              <span className="review-count">Trusted by 1,476+ Car Owners</span>
+            </div>
+          </div>
+          
+          <div className="reviews-marquee-container">
+            <div className="reviews-marquee-track">
+              {/* Duplicate the array to create seamless loop */}
+              {[...GOOGLE_REVIEWS, ...GOOGLE_REVIEWS].map((rev, i) => (
+                <div key={i} className="review-card-v2">
+                  <div className="rev-header">
+                    <div className="rev-user-info">
+                      <div className="rev-avatar-wrap">
+                        <img src={rev.avatar} alt={rev.name} className="rev-avatar-img" />
+                      </div>
+                      <div>
+                        <h4 className="rev-name">{rev.name}</h4>
+                        <span className="rev-date">{rev.date}</span>
+                      </div>
+                    </div>
+                    <div className="google-badge-small">
+                      <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" alt="Google" style={{ height: 12, width: 'auto' }} />
+                    </div>
+                  </div>
+                  <div className="rev-stars">{"★".repeat(rev.rating)}{"☆".repeat(5 - rev.rating)}</div>
+                  <p className="rev-text">{rev.text}</p>
+                  <div className="rev-verified">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    Verified Customer
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -358,10 +476,21 @@ function App() {
             </div>
 
             {selectedCar.brochure_pdf && (
-              <div style={{ marginTop: 24, marginBottom: 24 }}>
+              <div style={{ marginTop: 24, marginBottom: 24, display: 'flex', gap: 15, flexWrap: 'wrap' }}>
                 <a href={selectedCar.brochure_pdf} target="_blank" rel="noreferrer" className="btn-outline-gold" style={{ padding: '16px 32px', borderRadius: 100, display: 'inline-flex', alignItems: 'center', gap: 10, fontWeight: 700, textDecoration: 'none', border: '2px solid var(--bronze)', color: 'var(--bronze)' }}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4M7 10l5 5 5-5M12 15V3"/></svg>
                   Price Book
+                </a>
+                
+                <a 
+                  href={`https://wa.me/919688443333?text=${encodeURIComponent(`Welcome to Carpulz!\n\n${name} ${selectedCar.brand} ${selectedCar.model} Brochure`)}`}
+                  target="_blank" 
+                  rel="noreferrer" 
+                  className="btn-wa-gold" 
+                  style={{ padding: '16px 32px', borderRadius: 100, display: 'inline-flex', alignItems: 'center', gap: 10, fontWeight: 700, textDecoration: 'none', background: '#25D366', color: '#fff', boxShadow: '0 10px 20px rgba(37, 211, 102, 0.2)' }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  Get on WhatsApp
                 </a>
               </div>
             )}

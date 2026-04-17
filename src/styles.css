@@ -626,6 +626,210 @@ img { max-width: 100%; display: block; }
 .faq-a-static { color: #666; line-height: 1.6; font-size: 0.95rem; margin: 0; }
 
 /* ═══════════════════════════════════════
+   GOOGLE REVIEWS SECTION (Ultra-Premium Moving)
+═══════════════════════════════════════ */
+.home-reviews-section {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #fff 0%, #f9fafb 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.google-rating-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.g-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fff;
+  padding: 8px 16px;
+  border-radius: 100px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.google-g {
+  color: #4285F4;
+  font-weight: 900;
+  font-size: 1.2rem;
+}
+
+.rating-val { 
+  font-size: 1.1rem; 
+  color: #111; 
+  font-weight: 800;
+}
+
+.stars-mini { 
+  color: #FBBC05; 
+  font-size: 1.4rem; 
+  letter-spacing: 4px;
+  filter: drop-shadow(0 2px 4px rgba(251, 188, 5, 0.2));
+}
+
+.review-count { 
+  color: #64748b; 
+  font-size: 1rem; 
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* MARQUEE ANIMATION */
+.reviews-marquee-container {
+  margin-top: 40px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
+
+/* Fades on edges */
+.reviews-marquee-container::before,
+.reviews-marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 15vw;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.reviews-marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, #fff, transparent);
+}
+
+.reviews-marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, #fff, transparent);
+}
+
+.reviews-marquee-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: marqueeScroll 60s linear infinite;
+}
+
+.reviews-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 15px)); } /* Halfway through the doubled list */
+}
+
+.review-card-v2 {
+  flex: 0 0 380px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 35px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+}
+
+.review-card-v2:hover {
+  transform: scale(1.03) translateY(-5px);
+  background: #fff;
+  box-shadow: 0 30px 60px rgba(171, 109, 66, 0.1);
+  border-color: var(--bronze-light);
+}
+
+.rev-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 25px;
+}
+
+.rev-user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.rev-avatar-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f1f5f9;
+  border: 2px solid #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+}
+
+.rev-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rev-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111;
+  margin: 0;
+  font-family: var(--font-main);
+}
+
+.rev-date {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.google-badge-small {
+  width: 24px;
+  height: 24px;
+}
+
+.rev-stars {
+  color: #FBBC05;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.rev-text {
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.7;
+  font-weight: 500;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.rev-verified {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #22c55e;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 15px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.rev-verified svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ═══════════════════════════════════════
    PREMIUM CAR GRID (Home Page)
 ═══════════════════════════════════════ */
 .section-premium { padding: 80px 0; max-width: 1400px; margin: 0 auto; }
