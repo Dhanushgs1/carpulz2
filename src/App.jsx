@@ -120,11 +120,17 @@ function App() {
   }
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/cars`).then(r => r.json()).then(data => {
+    // For GitHub Pages, we fetch from the public/api/*.json files
+    // For Local Dev, we fetch from the local server
+    const carsPath = isDev ? `${API_BASE}/api/cars` : `${window.location.pathname.replace(/\/$/, '')}/api/cars.json`;
+    const homePath = isDev ? `${API_BASE}/api/home` : `${window.location.pathname.replace(/\/$/, '')}/api/home.json`;
+
+    fetch(carsPath).then(r => r.json()).then(data => {
       const carList = data.filter(item => item.brand && item.model);
       setCars(carList);
     }).catch(() => {});
-    fetch(`${API_BASE}/api/home`).then(r => r.json()).then(data => {
+
+    fetch(homePath).then(r => r.json()).then(data => {
       setHomeSettings(data || { hero_title: '', hero_subtitle: '', faqs: [] });
     }).catch(() => {});
   }, []);
@@ -163,11 +169,13 @@ function App() {
       model: selectedCar.model
     };
 
-    fetch(`${API_BASE}/api/leads`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(lead)
-    }).catch(() => {});
+    if (isDev) {
+      fetch(`${API_BASE}/api/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lead)
+      }).catch(() => {});
+    }
 
     setIsUnlocked(true);
     closeCatalog();
@@ -295,11 +303,13 @@ function App() {
                       brand: found.brand,
                       model: found.model
                     };
-                    fetch(`${API_BASE}/api/leads`, {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify(lead)
-                    }).catch(() => {});
+                    if (isDev) {
+                      fetch(`${API_BASE}/api/leads`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(lead)
+                      }).catch(() => {});
+                    }
                     setIsUnlocked(true);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }
