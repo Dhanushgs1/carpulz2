@@ -1,0 +1,107 @@
+[
+  {
+    "id": "car-1775536367877",
+    "brand": "Kia",
+    "model": "Seltos",
+    "badge": "Popular",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Kia_Seltos_SP2_PE_Snow_White_Pearl_%2817%29_%28cropped%29.jpg",
+    "price_range": "Rs. 1 - 2.5 laks",
+    "price_subtext": "",
+    "brochure_pdf": "http://localhost:3000/uploads/pdfs/dhanush.g_ai.pdf",
+    "description": "Completely new looks, larger dimensions and a brand new cabin with updated features define the new 2026 Kia Seltos. The all-rounder is back in an all-new avatar with an attractive price!",
+    "galleries": [
+      {
+        "title": "Exterior Highlights",
+        "images": [
+          "http://localhost:3000/uploads/images/screenshot_2026_04_12_152306.png",
+          "http://localhost:3000/uploads/images/screenshot_2026_04_15_203305.png",
+          "http://localhost:3000/uploads/images/screenshot_2026_04_15_223050.png"
+        ]
+      },
+      {
+        "title": "Interior",
+        "images": [
+          "http://localhost:3000/uploads/images/screenshot_2026_04_12_152347.png",
+          "http://localhost:3000/uploads/images/screenshot_2026_04_12_152357.png"
+        ]
+      }
+    ],
+    "specs": {
+      "engine": "1482 cc - 1497 cc",
+      "torque": "144 Nm - 253 Nm",
+      "drive_type": "2WD",
+      "power": "113 - 158 bhp",
+      "seating": "5",
+      "fuel": "Diesel / Petrol"
+    },
+    "transformations": [
+      "Full Body Kit Upgrade",
+      "Interior Ambient Lighting",
+      "Ceramic Coating & Paint Protection",
+      "Premium Sound System Integration",
+      "Custom Leather Seats"
+    ],
+    "reels": [
+      {
+        "url": "https://www.instagram.com/reel/DWjSlO-B-Zc/?igsh=MWF6ZzdjdXVlNGFueQ==",
+        "image": "",
+        "title": "Boot Space Transformation"
+      },
+      {
+        "url": "https://www.instagram.com/reel/DWoRzQxzFx6/?igsh=cnc0MTVnMmF5dmsx",
+        "image": "",
+        "title": "Kia Seltos Fatafat Review"
+      }
+    ],
+    "reels_section_title": " Reels",
+    "faq": [
+      {
+        "q": "What is the boot space?",
+        "a": "The Kia Seltos offers exactly 447 liters of boot space."
+      }
+    ],
+    "reviews": [],
+    "rating": 4.6,
+    "reviewCount": 27,
+    "gallery_interior": [],
+    "gallery_exterior": [],
+    "gallery_lights": []
+  },
+  {
+    "id": "car-1",
+    "brand": "Hyundai",
+    "model": "Creta",
+    "badge": "Popular",
+    "rating": "4.7",
+    "reviewCount": "1200",
+    "price_range": "Rs. 11.00 - 20.15 Lakh*",
+    "price_subtext": "",
+    "brochure_pdf": "",
+    "description": "Upgrade your Creta from safe basics to premium features with sleek styling, advanced lighting, and modern interiors.",
+    "image": "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=80",
+    "galleries": [
+      {
+        "title": "Exterior",
+        "images": [
+          "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1200&q=80"
+        ]
+      }
+    ],
+    "reels_section_title": "Premium Creta Transformations",
+    "specs": {
+      "engine": "1493 cc - 1497 cc",
+      "torque": "144 Nm - 250 Nm",
+      "drive_type": "2WD",
+      "power": "113 - 158 bhp",
+      "seating": "5",
+      "fuel": "Diesel / Petrol"
+    },
+    "transformations": [
+      "Knight Edition Cosmetic Upgrade",
+      "Premium Leatherette Interiors",
+      "BOSE Sound System Upgrade"
+    ],
+    "reels": [],
+    "faq": []
+  }
+]

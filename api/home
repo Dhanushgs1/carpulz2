@@ -1,0 +1,18 @@
+{
+  "faqs": [
+    {
+      "q": "What services do you offer?",
+      "a": "We provide complete car transformations including base-to-top variant conversions, premium interior upgrades, and exterior enhancements."
+    },
+    {
+      "q": "How long does a typical transformation take?",
+      "a": "Most upgrades are completed within 4-7 working days depending on the package complexity."
+    },
+    {
+      "q": "Is the conversion reversible?",
+      "a": "Yes, all our major upgrades are designed to be reversible without damaging the original car structure."
+    }
+  ],
+  "hero_title": "From Base to Best-in-Class.",
+  "hero_subtitle": "We take a base car and transform it into a top-tier vehicle — managing every client, every build, every detail from one place."
+}
